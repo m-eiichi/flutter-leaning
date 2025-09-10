@@ -13,44 +13,39 @@ A new Flutter project.
 
 ## フォルダ構成
 
-```plaintext
+```
 lib/
-├─ core/                       # アプリ全体で使う共通機能
+├─ core/                       # アプリ全体で使う共通機能・UI
 │   ├─ error/                  # 共通の例外クラス、エラーハンドリング
 │   ├─ network/                # API クライアント、Interceptor
 │   ├─ theme/                  # カラー、テキストスタイル、テーマ設定
 │   ├─ router/                 # ルーティング設定
 │   ├─ utils/                  # ヘルパー、拡張メソッド
 │   ├─ constants/              # 定数、型定義
-│   └─ widgets/                # 共通UI（Dialog, Loader, ErrorView など）
+│   └─ widgets/                # 汎用UI・アトミックコンポーネント（Button, Card, Dialog, Loader, ErrorView など）
 │
 ├─ features/                   # 機能ごとに分割
-│   ├─ auth/                   # 認証機能の例
-│   │   ├─ data/               # Repository, API クライアント
-│   │   ├─ domain/             # Entity, UseCase
+│   ├─ auth/                   # 認証機能
 │   │   ├─ providers/          # Riverpod の Provider / StateNotifier
-│   │   └─ presentation/       # UI (アトミックデザイン)
+│   │   ├─ repository/         # API クライアント・データ取得
+│   │   └─ ui/                 # UI (アトミックデザイン)
 │   │       ├─ atoms/          # ボタン、テキスト入力など最小単位
 │   │       ├─ molecules/      # 部品の組み合わせ (フォーム、カードなど)
 │   │       ├─ organisms/      # 複合的な UI (ヘッダー、リストなど)
 │   │       ├─ templates/      # 画面レイアウトの枠組み
 │   │       └─ pages/          # 実際のページ (ログイン画面など)
 │   │
-│   └─ home/                   # ホーム機能の例
-│       ├─ data/
-│       ├─ domain/
+│   └─ home/                   # ホーム機能
 │       ├─ providers/
-│       └─ presentation/
+│       ├─ repository/
+│       └─ ui/
 │           ├─ atoms/
 │           ├─ molecules/
 │           ├─ organisms/
 │           ├─ templates/
 │           └─ pages/
 │
-├─ shared/                     # 複数 feature で共通利用する UI
-│   ├─ atoms/
-│   ├─ molecules/
-│   ├─ organisms/
-│   └─ templates/
-│
 └─ main.dart                   # エントリーポイント
+
+```
+
