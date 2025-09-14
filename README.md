@@ -7,7 +7,7 @@ A new Flutter project.
 ## アーキテクチャー
 
 本プロジェクトでは、**アトミックデザイン** の考え方を取り入れた UI 設計と、  
-**Riverpod** による状態管理を採用しています。  
+**Riverpod** による状態管理を採用しています。
 
 ---
 
@@ -49,3 +49,16 @@ lib/
 
 ```
 
+## 命名規則
+
+ファイル・フォルダ名 → snake_case
+例: home_page.dart, user_repository/, auth_provider/
+
+クラス名 → UpperCamelCase
+例: HomePage, UserRepository
+
+変数・関数名 → lowerCamelCase
+例: fetchUser(), homePageProvider
+
+追加
+flutter pub remove flutter_riverpod
