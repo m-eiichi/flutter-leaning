@@ -1,12 +1,21 @@
-class Home extends ConsumerWidget {
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../providers/counter_provider.dart';
+
+class HomePage extends ConsumerWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final boredSuggestion = ref.watch(boredSuggestionProvider);
-    // Perform a switch-case on the result to handle loading/error states
-    return switch (boredSuggestion) {
-      AsyncData(:final value) => Text('data: $value'),
-      AsyncError(:final error) => Text('error: $error'),
-      _ => const Text('loading'),
-    };
+    final count = ref.watch(counterProvider);
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Riverpod Test')),
+      body: Center(child: Text('Count: $count')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => ref.read(counterProvider.notifier).state++,
+        child: const Icon(Icons.add),
+      ),
+    );
   }
 }
